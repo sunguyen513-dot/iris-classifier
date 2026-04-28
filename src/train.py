@@ -42,3 +42,17 @@ disp.plot()
 from sklearn.metrics import (classification_report, accuracy_score, confusion_matrix)
 print(classification_report(y_test, y_pred))
 
+
+import os
+import joblib
+import matplotlib.pyplot as plt
+
+# create outputs folder
+os.makedirs("outputs", exist_ok=True)
+
+# save confusion matrix
+plt.savefig("outputs/confusion_matrix.png")
+plt.close()
+
+# save model
+joblib.dump(model, "outputs/model.joblib")
